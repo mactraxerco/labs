@@ -1,23 +1,30 @@
 package com.company.lab3;
 
+import static com.company.lab3.TV.HZ.*;
+
 public class Main {
     public static void main(String[] args) {
-        TV sany = new TV(5);
+        TV sany = new TV();
         RemoteController sanyController = new RemoteController();
         sany.setRemoteController(sanyController);
 
         sanyController.toggle();
 
-        sany.setChannel(0, new Channel("HOBOSTI"));
+        sany.setChannel(new Channel("HOBOSTI", HZ4000));
         // no channel assigned to '1'
-        sany.setChannel(2, new Channel("Ren-TV"));
-        sany.setChannel(3, new Channel("4x4"));
-        sany.setChannel(4, new Channel("HTV"));
-        sany.setChannel(5, new Channel("First")); // Error
+        sany.setChannel(new Channel("Ren-TV"));
+        sany.setChannel(new Channel("4x4", HZ3000));
+        sany.setChannel(new Channel("HTV", HZ1000));
+        sany.setChannel(new Channel("First"));
 
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < 7; i++) {
             sanyController.change(i);
         }
+
+        System.out.println(sany.findChannel(HZ3000));
+        System.out.println(sany.findChannel(HZ4000));
+        System.out.println(sany.findChannel(HZ1488));
+
 
         sanyController.toggle();
     }

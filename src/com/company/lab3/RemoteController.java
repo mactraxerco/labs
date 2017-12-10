@@ -4,6 +4,7 @@ public class RemoteController {
     private TV tv;
 
     public void setTV(TV tv) {
+
         this.tv = tv;
     }
 
@@ -17,13 +18,13 @@ public class RemoteController {
         }
     }
 
-    public void setChannel(int channelNumber, Channel channel) {
+    public void setChannel(Channel channel) {
         System.out.println("Trying to set channel from remote controller");
         if (tv == null) {
             System.out.println("There is no TV assigned to this remote controller");
         }
         else {
-            tv.setChannel(channelNumber, channel);
+            tv.setChannel(channel);
         }
     }
 

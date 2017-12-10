@@ -1,5 +1,4 @@
 package com.company.lab2;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,7 @@ public class TV {
 
     public TV(int maxChannelCount) {
         channels = new ArrayList<>(maxChannelCount);
-        for (int i = 0; i < maxChannelCount; ++i) {
+        for (int i = 0; i < maxChannelCount; i++) {
             channels.add(null);
         }
         enabled = false;
@@ -26,9 +25,7 @@ public class TV {
         }
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+
 
     public void setChannel(int channelNumber, Channel channel) {
         if (!this.enabled) {
